@@ -1,7 +1,7 @@
 import searchIcon from '../../assets/icons/search.png';
-import cartIcon from '../../assets/icons/cart.png';
 import userIcon from '../../assets/icons/user.png';
 import logoIcon from '../../assets/icons/logo.svg';
+import CartIcon from '../CartIcon/CartIcon';
 import styles from './Header.module.css';
 
 function Header() {
@@ -17,9 +17,7 @@ function Header() {
           <img src={searchIcon} alt="" className={styles.icon} />
         </button>
 
-        <button className={styles.iconButton} type="button" aria-label="Корзина">
-          <img src={cartIcon} alt="" className={styles.icon} />
-        </button>
+        <CartIcon />
 
         <button className={styles.iconButton} type="button" aria-label="Профиль">
           <img src={userIcon} alt="" className={styles.icon} />

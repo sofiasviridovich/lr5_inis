@@ -11,6 +11,7 @@ function App() {
       <main className="app">
         <div className="catalog">
           <ProductCard
+            id="web-design-basics"
             title="Основы веб-дизайна"
             description="Курс по современному веб-дизайну для начинающих"
             price={50}
@@ -18,6 +19,7 @@ function App() {
             image={product1}
           />
           <ProductCard
+            id="uiux-design-pro"
             title="UI/UX дизайн PRO"
             description="Продвинутый курс по проектированию интерфейсов"
             price={79}

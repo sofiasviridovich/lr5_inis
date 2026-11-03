@@ -1,20 +1,39 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import QuantitySelector from '../QuantitySelector/QuantitySelector';
+import { addToCart } from '../../store/cartSlice';
 import starIcon from '../../assets/icons/star.svg';
 import starOutlineIcon from '../../assets/icons/star-outline.svg';
 import styles from './ProductCard.module.css';
 
-function ProductCard({ title, description, price, image, rating = 5 }) {
+function ProductCard({ id, title, description, price, image, rating = 5 }) {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {
-    console.log(`Добавлено в корзину: ${title}, количество: ${quantity}`);
+    dispatch(
+      addToCart({
+        id,
+        title,
+        price,
+        image,
+        quantity,
+      }),
+    );
   };
 
   const handleBuyNow = () => {
-    console.log(`Купить сейчас: ${title}, количество: ${quantity}`);
+    dispatch(
+      addToCart({
+        id,
+        title,
+        price,
+        image,
+        quantity,
+      }),
+    );
   };
 
   const handleQuantityChange = (value) => {
@@ -63,6 +82,7 @@ function ProductCard({ title, description, price, image, rating = 5 }) {
 }
 
 ProductCard.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
